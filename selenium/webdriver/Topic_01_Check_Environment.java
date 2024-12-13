@@ -4,6 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -44,6 +46,20 @@ public class Topic_01_Check_Environment {
     @Test
     public void TC_03_Form() {
         Assert.assertTrue(driver.findElement(By.xpath("//form[@data-testid='royal_login_form']")).isDisplayed());
+    }
+
+    @Test
+    public void TC_04_Run_On_Chrome(){
+        driver = new ChromeDriver();
+        driver.get("https://www.facebook.com/");
+        driver.quit();
+    }
+
+    @Test
+    public void TC_05_Run_On_Edge(){
+        driver = new EdgeDriver();
+        driver.get("https://www.facebook.com/");
+        driver.quit();
     }
 
     @AfterClass
